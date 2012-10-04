@@ -1,0 +1,53 @@
+{
+   "abstract" : "Crab client library",
+   "author" : [
+      "Graham Bell <g.bell@jach.hawaii.edu>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120530",
+   "license" : [
+      "open_source"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "WWW-Crab-Client",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Config::IniFiles" : "0",
+            "File::HomeDir" : "0",
+            "File::Spec" : "0",
+            "HTTP::Request" : "0",
+            "IO::Scalar" : "2.11",
+            "JSON" : "0",
+            "LWP::UserAgent" : "0",
+            "Sys::Hostname" : "0"
+         }
+      }
+   },
+   "provides" : {
+      "WWW::Crab::Client" : {
+         "file" : "lib/WWW/Crab/Client.pm",
+         "version" : "0.01"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/gpl-license.php"
+      ]
+   },
+   "version" : "0.01"
+}
