@@ -14,12 +14,12 @@ Requirements
 ------------
 
     Config::IniFiles
-    LWP::UserAgent
-    IO::Scalar
     File::HomeDir
     File::Spec
-    JSON
     HTTP::Request
+    IO::Scalar
+    JSON
+    LWP::UserAgent
     Sys::Hostname
 
 Building
