@@ -5,9 +5,9 @@ author:
 build_requires:
   Test::More: 0
 configure_requires:
-  Module::Build: 0.38
+  Module::Build: 0.40
 dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.120530'
+generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921'
 license: open_source
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,7 +16,7 @@ name: WWW-Crab-Client
 provides:
   WWW::Crab::Client:
     file: lib/WWW/Crab/Client.pm
-    version: 0.02
+    version: 0.03
 requires:
   Config::IniFiles: 2.39
   File::HomeDir: 0
@@ -27,5 +27,5 @@ requires:
   LWP::UserAgent: 0
   Sys::Hostname: 0
 resources:
-  license: http://opensource.org/licenses/gpl-license.php
-version: 0.02
+  license: http://www.gnu.org/licenses/gpl-3.0.txt
+version: 0.03

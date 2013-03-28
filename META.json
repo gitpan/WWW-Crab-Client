@@ -4,7 +4,7 @@
       "Graham Bell <g.bell@jach.hawaii.edu>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120530",
+   "generated_by" : "Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "open_source"
    ],
@@ -21,7 +21,7 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.40"
          }
       },
       "runtime" : {
@@ -40,14 +40,14 @@
    "provides" : {
       "WWW::Crab::Client" : {
          "file" : "lib/WWW/Crab/Client.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "license" : [
-         "http://opensource.org/licenses/gpl-license.php"
+         "http://www.gnu.org/licenses/gpl-3.0.txt"
       ]
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }
