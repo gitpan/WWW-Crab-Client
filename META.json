@@ -40,7 +40,7 @@
    "provides" : {
       "WWW::Crab::Client" : {
          "file" : "lib/WWW/Crab/Client.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -49,5 +49,5 @@
          "http://www.gnu.org/licenses/gpl-3.0.txt"
       ]
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }

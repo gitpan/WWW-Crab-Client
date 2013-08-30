@@ -42,7 +42,7 @@ use JSON;
 use LWP::UserAgent;
 use Sys::Hostname;
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 use constant {
     SUCCESS       => 0,
@@ -50,6 +50,7 @@ use constant {
     UNKNOWN       => 2,
     COULDNOTSTART => 3,
     ALREADYRUNNING=> 4,
+    WARNING       => 5,
 };
 
 =head1 CONSTRUCTOR
@@ -81,14 +82,12 @@ sub new {
     my $class = shift;
     my %opt = @_;
 
-    my ($username, undef, undef, undef, undef, undef, undef,
-        undef, undef, undef) = getpwuid($<);
-
     my $conf = new Config::IniFiles(-file => \'', -allowempty => 1);
     my $conf_system = File::Spec->catfile($ENV{'CRABSYSCONFIG'} || '/etc/crab',
                                           'crab.ini');
-    my $conf_user = File::Spec->catfile(File::HomeDir->my_home(),
-                                        '.crab', 'crab.ini');
+    my $conf_user = File::Spec->catfile($ENV{'CRABUSERCONFIG'} ||
+                                        (File::HomeDir->my_home() . '/.crab'),
+                                        'crab.ini');
     $conf = new Config::IniFiles(-file => $conf_system, '-import' => $conf,
                                  -allowempty => 1)
         if (-e $conf_system);
@@ -107,7 +106,7 @@ sub new {
         hostname => $opt{'hostname'} || $conf->val('client', 'hostname',
                                             hostname()),
         username => $opt{'username'} || $conf->val('client', 'username',
-                                            $username),
+                                            _get_username()),
     };
 
     return bless $self, $class;
@@ -156,6 +155,7 @@ to obtain the appropriate Crab status codes:
   UNKNOWN
   COULDNOTSTART
   ALREADYRUNNING
+  WARNING
 
 This method uses "die" to raise an exception if it is unsuccessful
 in reporting to the Crab server.
@@ -214,6 +214,32 @@ sub _get_url {
 
     return 'http://' . $self->{'server'} . ':' . $self->{'port'} . '/' .
            join('/', 'api', '0', $action, @path);
+}
+
+# _get_username()
+#
+# Detects the username of the current user.
+#
+# This provides the default value for the username parameter
+# of the WWW::Crab::Client constructor.
+
+sub _get_username {
+    my $username = undef;
+
+    eval {
+        $username = scalar getpwuid($<);
+    };
+
+    return $username if defined $username;
+
+    eval {
+        require Win32;
+        $username = Win32::LoginName();
+    };
+
+    return $username if defined $username;
+
+    return 'user';
 }
 
 1;
