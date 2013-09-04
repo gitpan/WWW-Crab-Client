@@ -33,14 +33,15 @@
             "IO::Scalar" : "2.11",
             "JSON" : "0",
             "LWP::UserAgent" : "0",
-            "Sys::Hostname" : "0"
+            "Sys::Hostname" : "0",
+            "perl" : "v5.8.0"
          }
       }
    },
    "provides" : {
       "WWW::Crab::Client" : {
          "file" : "lib/WWW/Crab/Client.pm",
-         "version" : "0.04"
+         "version" : "0.05"
       }
    },
    "release_status" : "stable",
@@ -49,5 +50,5 @@
          "http://www.gnu.org/licenses/gpl-3.0.txt"
       ]
    },
-   "version" : "0.04"
+   "version" : "0.05"
 }
